@@ -1,0 +1,22 @@
+
+# Original datasets
+train.csv
+test.csv
+predictions*.csv
+sample_submission.csv
+
+# Python environment
+venv/
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Secrets and local settings
+.env
+.env.*
+.DS_Store
+
+# Optional model artifacts
+# **/artifacts/**/*.pkl
+# **/models/*.joblib

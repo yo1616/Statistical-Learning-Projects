@@ -1,0 +1,97 @@
+seed: 42
+valid_ratio: 0.2
+target_col: label
+
+# 根據實際欄位名稱自行修改
+categorical_cols:
+  - LogTitle
+  - category
+  - job_position0
+  - job_duty
+  - job_workcity
+  - job_worktime
+  - job_experience
+  - job_major
+  - job_grade
+  - job_gender
+  - job_age
+  - job_character
+  - job_lang
+  - job_vacation
+  - job_evection
+  - job_management
+  - job_salary
+  - org_trade
+  - org_attribute
+  - talent_preference_position0
+  - talent_preference_duty0
+  - talent_preference_worktime
+  - talent_preference_vacation
+
+numeric_cols: []
+
+datetime_cols:
+  - dateIn
+
+# ML 文本特徵 (TF-IDF)
+text_cols_ml:
+  - LogTitle
+  - job_duty
+  - job_matter
+  - talent_experience
+  - talent_structured_skill
+tfidf_max_features: 12000
+tfidf_ngram_range: [1, 2]
+
+numeric_cols:
+  - salary_min
+  - salary_max
+  - salary_mean
+  - age_min
+  - age_max
+  - len_job_duty
+  - len_talent_experience
+  - len_talent_freeform
+  - match_duty_overlap
+  - match_skill_overlap
+  - match_city
+  - match_worktime
+  - match_vacation
+
+ml_model_params:
+  boosting_type: gbdt
+  objective: binary
+  metric: binary_logloss
+  n_estimators: 800
+  learning_rate: 0.03
+  num_leaves: 127
+  max_depth: -1
+  subsample: 0.8
+  colsample_bytree: 0.8
+  min_child_samples: 40
+  lambda_l1: 1.0
+  lambda_l2: 1.0
+  scale_pos_weight: 4.9
+  n_jobs: 1
+  force_col_wise: true
+
+# LogReg grid (for train_logreg.py)
+logreg_grid:
+  - {penalty: l2, C: 0.5, class_weight: balanced, max_iter: 3000, solver: liblinear, n_jobs: -1}
+  - {penalty: l2, C: 1.0, class_weight: balanced, max_iter: 3000, solver: liblinear, n_jobs: -1}
+  - {penalty: l2, C: 2.0, class_weight: balanced, max_iter: 3000, solver: liblinear, n_jobs: -1}
+  - {penalty: l1, C: 1.0, class_weight: balanced, max_iter: 3000, solver: liblinear, n_jobs: -1}
+
+# 深度學習設定
+text_cols:
+  - LogTitle  # 可自行加入其他文字欄位
+dl_model_name: hfl/chinese-roberta-wwm-ext
+max_length: 128
+batch_size: 16
+epochs: 3
+lr: 2e-5
+weight_decay: 0.01
+tab_hidden_size: 256
+pos_weight: null  # e.g., 4.8 for imbalance
+inference_threshold: 0.5
+infer_batch_size: 16

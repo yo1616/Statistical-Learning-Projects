@@ -1,0 +1,9 @@
+pandas
+numpy
+scikit-learn
+lightgbm
+pyyaml
+tqdm
+# 以下為深度學習與 NLP（如未使用可刪除）
+torch
+transformers

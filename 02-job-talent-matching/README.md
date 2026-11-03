@@ -1,7 +1,5 @@
 # Job–Talent Matching Prediction Using Machine Learning
 
-[English](./README.md) | [繁體中文](./README.zh-TW.md)
-
 **Statistical Learning & Deep Learning — Mini-Project 2**
 
 **Python · NLP · Feature Engineering · LightGBM · Logistic Regression · Classification**

@@ -13,8 +13,6 @@ categorical_cols:
   - job_experience
   - job_major
   - job_grade
-  - job_gender
-  - job_age
   - job_character
   - job_lang
   - job_vacation
@@ -47,8 +45,6 @@ numeric_cols:
   - salary_min
   - salary_max
   - salary_mean
-  - age_min
-  - age_max
   - len_job_duty
   - len_talent_experience
   - len_talent_freeform

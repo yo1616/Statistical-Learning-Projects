@@ -6,6 +6,8 @@ target_col: label
 categorical_cols:
   - LogTitle
   - category
+  - job_gender
+  - job_age
   - job_position0
   - job_duty
   - job_workcity
@@ -45,6 +47,8 @@ numeric_cols:
   - salary_min
   - salary_max
   - salary_mean
+  - age_min
+  - age_max
   - len_job_duty
   - len_talent_experience
   - len_talent_freeform
